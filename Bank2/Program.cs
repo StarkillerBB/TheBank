@@ -33,5 +33,18 @@ namespace Bank1
 
         }
 
+        //TODO : Make people able to use 2,3,4 without having an account. Give them prompt to create account.
+        public static void Menu()
+        {
+            Console.Clear();
+            Console.WriteLine($"*** Velkommen til {bank.bankName} ***");
+            Console.WriteLine("Please choose one of the following:");
+            Console.WriteLine("1. Create Account.");
+            Console.WriteLine("2. Desposit money into your account.");
+            Console.WriteLine("3. Withdraw money from your account.");
+            Console.WriteLine("4. Display balance on your account.");
+            Console.WriteLine("5. Exit bank.");
+
+        }
     }
 }
