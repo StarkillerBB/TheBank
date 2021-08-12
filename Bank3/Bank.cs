@@ -50,7 +50,9 @@ namespace Bank2
         /// <returns></returns>
         public string Deposit(decimal balance, int accountNumber)
         {
-            Account accounts = accountList.Find(a => a.AccountNumber == accountNumber);
+            
+
+
             //TODO : Add deposit to specific account
             if (true)
             {
@@ -90,6 +92,15 @@ namespace Bank2
             return $"Your balance is {account.balance}kr.";
         }
 
+
+        public string FindAccount(int accountNumber)
+        {
+            Account accounts = accountList.Find(a => a.AccountNumber == accountNumber);
+
+            specificAccount = account;
+
+            return accounts;
+        }
 
         //TODO : Pull balance from all users and add it to bankBalance.
         //public string BankBalance()
