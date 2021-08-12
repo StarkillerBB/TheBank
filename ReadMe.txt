@@ -1,16 +1,18 @@
 # Bank Repitition Project
 
-#### Jumps:
+#### Navigation menu:
 
-
-
-
+[Bank 1](#Bank-1).  
+[Bank 2](#Bank-2).  
+[Bank 3](#Bank-3).
 
 ## ChangeLog.
 ### All changes will be added to this section.
 
-#### Bank 1 - 08/11/21
+
+#### Bank 1.
 ##### Added.
+
 	* Create Bank.
 	* Created Bank methods.
 		* Deposit.
@@ -18,14 +20,13 @@
 		* Balance.
 	* Create Account.
 
-
 ##### Changed.
 
 ##### Removed.
 
 ---
 
-#### Bank 2 - 08/12/21
+#### Bank 2.
 ##### Added.
 
 	* Created method for making menu
@@ -36,7 +37,7 @@
 
 ---
 
-#### Bank 3 - 08/12/21
+#### Bank 3.
 ##### Added.
 
 	* option to create more users.

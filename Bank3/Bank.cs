@@ -8,19 +8,17 @@ namespace Bank2
 {
     class Bank
     {
-        Account account;
 
         List<Account> accountList = new List<Account>();
 
         int accountNumberCounter;
-
         public string returnValues { get; set; }
         public string bankName { get; }
         public decimal bankBalance { get; set; }
 
         public Bank(string bankName)
         {
-            accountList = new List<Account>();
+            
             this.bankName = bankName;
             accountNumberCounter = 1;
         }
@@ -32,15 +30,12 @@ namespace Bank2
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public Account CreateAccount(string name)
+        public void CreateAccount(string name)
         {
-
-
+            
             accountList.Add(new Account(name, accountNumberCounter));
 
             accountNumberCounter++;
-
-            return account;
         }
 
         /// <summary>
@@ -50,21 +45,25 @@ namespace Bank2
         /// <returns></returns>
         public string Deposit(decimal balance, int accountNumber)
         {
-            
 
+            Account account = FindAccount(accountNumber);
 
-            //TODO : Add deposit to specific account
-            if (true)
+            if (account == null)
+            {
+                return "Account number does not exist.";
+            }
+            else
             {
 
+                bankBalance = bankBalance + balance;
+                account.balance = account.balance + balance;
+
+                returnValues = $"You deposited {balance}kr. Your new balance is {account.balance}kr.";
+
+                return returnValues;
             }
 
-            bankBalance = bankBalance + balance;
-            account.balance = account.balance + balance;
-
-            returnValues = $"You deposited {balance}kr. Your new balance is {account.balance}kr.";
-
-            return returnValues;
+            
         }
 
         /// <summary>
@@ -72,32 +71,53 @@ namespace Bank2
         /// </summary>
         /// <param name="balance"></param>
         /// <returns></returns>
-        public string Withdrawl(decimal balance)
+        public string Withdrawl(decimal balance, int accountNumber)
         {
 
-            bankBalance = bankBalance - balance;
-            account.balance = account.balance - balance;
+            Account account = FindAccount(accountNumber);
 
-            returnValues = $"You withdrawed {balance}kr. Your new balance is {account.balance}kr.";
+            if (account == null)
+            {
+                return "Account number does not exist.";
+            }
+            else
+            {
+                bankBalance = bankBalance - balance;
+                account.balance = account.balance - balance;
 
-            return returnValues;
+                returnValues = $"You withdrawed {balance}kr. Your new balance is {account.balance}kr.";
+
+                return returnValues;
+            }
+
+            
         }
 
         /// <summary>
         /// Return current amount of money in existing account.
         /// </summary>
         /// <returns></returns>
-        public string Balance()
+        public string Balance(int accountNumber)
         {
-            return $"Your balance is {account.balance}kr.";
+
+            Account account = FindAccount(accountNumber);
+
+            if (account == null)
+            {
+                return "Account number does not exist.";
+            }
+            else
+            {
+                return $"Your balance is {account.balance}kr.";
+            }
+
+            
         }
 
 
-        public string FindAccount(int accountNumber)
+        public Account FindAccount(int accountNumber)
         {
             Account accounts = accountList.Find(a => a.AccountNumber == accountNumber);
-
-            specificAccount = account;
 
             return accounts;
         }

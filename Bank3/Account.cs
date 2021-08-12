@@ -9,7 +9,6 @@ namespace Bank2
     class Account
     {
 
-        int _accountNumber;
         public int AccountNumber { get; }
         public string name {get;}
         public decimal balance { get; set; }
@@ -19,8 +18,8 @@ namespace Bank2
         public Account(string name, int acc)
         {
             this.name = name;
+            this.AccountNumber = acc;
             balance = 0;
-            _accountNumber = acc;
 
         }
 
