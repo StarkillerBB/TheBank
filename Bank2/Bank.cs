@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bank1
+namespace Bank2
 {
     class Bank
     {
         Account account;
 
+        public string returnValues { get; set; }
         public string bankName {get;}
 
         public Bank(string bankName)
@@ -42,7 +43,9 @@ namespace Bank1
 
             account.balance = account.balance + balance;
 
-            return $"You deposited {balance}kr. Your new balance is {account.balance}kr.";
+            returnValues = $"You deposited {balance}kr. Your new balance is {account.balance}kr.";
+
+            return returnValues;
         }
 
         /// <summary>
@@ -55,7 +58,9 @@ namespace Bank1
 
             account.balance = account.balance - balance;
 
-            return $"You withdrawed {balance}kr. Your new balance is {account.balance}kr.";
+            returnValues = $"You withdrawed {balance}kr. Your new balance is {account.balance}kr.";
+
+            return returnValues;
         }
 
         /// <summary>
