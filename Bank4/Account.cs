@@ -4,24 +4,91 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bank2
+namespace Bank4
 {
-    class Account
+
+    enum AccountType
+    {
+        CheckingAccount,
+        SavingsAccount,
+        MasterCardAccount
+    }
+    abstract class Account
     {
 
-        public int AccountNumber { get; }
-        public string name {get;}
+        public int AccountNumber { get; set; }
+        public string name { get; set; }
         public decimal balance { get; set; }
         public int AccountNumberCounter { get; set; }
+        public AccountType AccountType { get; set; }
 
+        public abstract void ChargeInterest();
 
-        public Account(string name, int acc)
+    }
+
+    class CheckingAccount : Account
+    {
+        public CheckingAccount(string name, int AccountNumber)
         {
             this.name = name;
-            this.AccountNumber = acc;
-            balance = 0;
+            this.AccountNumber = AccountNumber;
+        }
+
+        public override void ChargeInterest()
+        {
+            this.balance = this.balance * 1.05M;
+        }
+    }
+
+    class SavingsAccount : Account
+    {
+
+        public SavingsAccount(string name, int AccountNumber)
+        {
+            this.name = name;
+            this.AccountNumber = AccountNumber;
+        }
+
+        public override void ChargeInterest()
+        {
+            if (this.balance < 50000)
+            {
+                this.balance = this.balance * 1.01M;
+            }
+            else if (this.balance < 100000)
+            {
+                this.balance = this.balance * 1.02M;
+            }
+            else if (this.balance > 100000)
+            {
+                this.balance = this.balance * 1.03M;
+            }
+
 
         }
 
+    }
+
+    class MasterCardAccount : Account
+    {
+        public MasterCardAccount(string name, int AccountNumber)
+        {
+            this.name = name;
+            this.AccountNumber = AccountNumber;
+        }
+
+        public override void ChargeInterest()
+        {
+
+            if (this.balance > 0)
+            {
+                this.balance = this.balance * 1.001M;
+            }
+            else if (this.balance < 0)
+            {
+                this.balance = this.balance / 1.20M;
+            }
+
+        }
     }
 }

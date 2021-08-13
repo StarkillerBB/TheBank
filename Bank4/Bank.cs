@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bank2
+namespace Bank4
 {
     class Bank
     {
+        
 
         List<Account> accountList = new List<Account>();
 
@@ -15,6 +16,7 @@ namespace Bank2
         public string returnValues { get; set; }
         public string bankName { get; }
         public decimal bankBalance { get; set; }
+        public Account account { get; set; }
 
         public Bank(string bankName)
         {
@@ -24,18 +26,37 @@ namespace Bank2
         }
 
 
-
+        //TODO : Add Enumerations
         /// <summary>
         /// Creating account with inserted name
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public void CreateAccount(string name)
+        public string CreateAccount(string name, AccountType accType)
         {
-            
-            accountList.Add(new Account(name, accountNumberCounter));
+
+            switch (accType)
+            {
+                case AccountType.CheckingAccount:
+                    accountList.Add(new CheckingAccount(name, accountNumberCounter));
+                    break;
+
+                case AccountType.SavingsAccount:
+                    accountList.Add(new SavingsAccount(name, accountNumberCounter));
+                    break;
+
+                case AccountType.MasterCardAccount:
+                    accountList.Add(new SavingsAccount(name, accountNumberCounter));
+                    break;
+                default:
+                    break;
+            }
+
+            account = FindAccount(accountNumberCounter);
 
             accountNumberCounter++;
+
+            return $"Created account successfully. \n Account Name: {account.name} \n Account ID: {account.AccountNumber} \n Account Type: {account.AccountType} \n Account Balance: {account.balance}";
         }
 
         /// <summary>
@@ -46,7 +67,7 @@ namespace Bank2
         public string Deposit(decimal balance, int accountNumber)
         {
 
-            Account account = FindAccount(accountNumber);
+            account = FindAccount(accountNumber);
 
             if (account == null)
             {
@@ -74,7 +95,7 @@ namespace Bank2
         public string Withdrawl(decimal balance, int accountNumber)
         {
 
-            Account account = FindAccount(accountNumber);
+            account = FindAccount(accountNumber);
 
             if (account == null)
             {
@@ -100,7 +121,7 @@ namespace Bank2
         public string Balance(int accountNumber)
         {
 
-            Account account = FindAccount(accountNumber);
+            account = FindAccount(accountNumber);
 
             if (account == null)
             {
@@ -114,12 +135,27 @@ namespace Bank2
             
         }
 
-
+        /// <summary>
+        /// Running through List with accounts to find correct user.
+        /// </summary>
+        /// <param name="accountNumber"></param>
+        /// <returns></returns>
         public Account FindAccount(int accountNumber)
         {
-            Account accounts = accountList.Find(a => a.AccountNumber == accountNumber);
+            account = accountList.Find(a => a.AccountNumber == accountNumber);
 
-            return accounts;
+            return account;
+        }
+
+        /// <summary>
+        /// Adds interest to ALL accounts in the bank.
+        /// </summary>
+        public void ChargeInterest()
+        {
+            foreach (Account accounts in accountList)
+            {
+                accounts.ChargeInterest();
+            }
         }
 
         //TODO : Pull balance from all users and add it to bankBalance.
