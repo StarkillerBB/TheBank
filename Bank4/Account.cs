@@ -23,10 +23,5 @@ namespace Bank2
 
         }
 
-        public void ChargeInterest()
-        {
-
-        }
-
     }
 }
