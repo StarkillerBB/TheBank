@@ -51,17 +51,17 @@ namespace Bank4
 
         public override void ChargeInterest()
         {
-            if (this.balance < 50000)
+            if (balance < 50000)
             {
-                this.balance = this.balance * 1.01M;
+                balance = balance * 1.01M;
             }
-            else if (this.balance < 100000)
+            else if (balance < 100000)
             {
-                this.balance = this.balance * 1.02M;
+                balance = balance * 1.02M;
             }
-            else if (this.balance > 100000)
+            else if (balance >= 100000)
             {
-                this.balance = this.balance * 1.03M;
+                balance = balance * 1.03M;
             }
 
 

@@ -1,18 +1,15 @@
 # Bank Repitition Project
 ##### Author: Benjamin Lank
+#### Description:
 ##### Console project, demonstrating a bank with multiple accounts and with different options available.
 
 #### Navigation menu:
-
-Methods:
-
-
 ChangeLog:  
-[Bank 1](#Bank-1).  
-[Bank 2](#Bank-2).  
-[Bank 3](#Bank-3).  
-[Bank 4](#Bank-4).  
-[Bank 5](#Bank-5).
+- [Bank 1](#Bank-1).  
+- [Bank 2](#Bank-2).  
+- [Bank 3](#Bank-3).  
+- [Bank 4](#Bank-4).  
+- [Bank 5](#Bank-5).
 
 
 ## Console menu.
