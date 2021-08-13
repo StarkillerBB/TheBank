@@ -18,8 +18,29 @@ ChangeLog:
 ## Console menu.
 ### Short description of the menu and each method associated with it.
 
-
-
+	1. Create account.
+		* Allows you to create an account with a self chosen name.
+		* Each account is specified to start with 0 money.
+	2. Deposit money into account.
+		* Transfer a specified amount of money into a specified account, chosen by the account ID inputed.
+	3. Withdraw money from account.
+		* Transfer a specified amount of money out of a specified account, chosen by the account ID inputed.
+		* The account is allowed to go into negative numbers.
+	4. Display balance on your account.
+		* Display the balance of a specific account, chosen by the account ID inputed.
+	5. Charge interest.
+		*Add or remove money from all accounts in the bank.
+		*The money removed are calculated from a specific mathematical calculation.
+			* Checking Account: 
+				* salary is calculated by current amount of money, times 1.05 for an increase of 5%
+			* Savings Account: 
+				* salary is calculated by current amount of money, times 1.01 for an increase of 1% if the deposited amount of money is less than 50 000.
+				* salary is calculated by current amount of money, times 1.02 for an increase of 2% if the deposited amount of money is less than 100 000.
+				* salary is calculated by current amount of money, times 1.03 for an increase of 3% if the deposited amount of money is more than 100 000.
+			* Consumer account:
+				* salary is calculated by current amount of money, times 1.001 for an increase of 0.1% if the deposited amoutn of money is a negative number, it will take 20% away from the account this is calculated by deopisted amount of money times 1.20 for a decrease of 20%
+  	6. Exit.
+		* Closes the application
 
 ## ChangeLog.
 ### All changes will be added to this section.

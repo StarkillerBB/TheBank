@@ -86,7 +86,7 @@ namespace Bank4
             }
             else if (this.balance < 0)
             {
-                this.balance = this.balance / 1.20M;
+                this.balance = this.balance * 1.20M;
             }
 
         }

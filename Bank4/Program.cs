@@ -38,17 +38,28 @@ namespace Bank4
                             switch (Console.ReadKey(true).KeyChar)
                             {
                                 case '1':
+                                    Console.Clear();
                                     bank.CreateAccount(accountName, AccountType.CheckingAccount);
+                                    Console.WriteLine(bank.returnValues);
+                                    Console.WriteLine("\n Press any key to continue");
+                                    Console.ReadKey();
 
                                     ShouldLoop = false;
                                     break;
                                 case '2':
+                                    Console.Clear();
                                     bank.CreateAccount(accountName, AccountType.SavingsAccount);
-
+                                    Console.WriteLine(bank.returnValues);
+                                    Console.WriteLine("\n Press any key to continue");
+                                    Console.ReadKey();
                                     ShouldLoop = false;
                                     break;
                                 case '3':
+                                    Console.Clear();
                                     bank.CreateAccount(accountName, AccountType.MasterCardAccount);
+                                    Console.WriteLine(bank.returnValues);
+                                    Console.WriteLine("\n Press any key to continue");
+                                    Console.ReadKey();
 
                                     ShouldLoop = false;
                                     break;
@@ -122,13 +133,13 @@ namespace Bank4
         {
 
             Console.Clear();
-            Console.WriteLine($"*** Velkommen til {bank.bankName} ***");
+            Console.WriteLine($"*** Welcome too {bank.bankName} ***");
             Console.WriteLine("Please choose one of the following:");
             Console.WriteLine("1. Create Account.");
             Console.WriteLine("2. Desposit money into your account.");
             Console.WriteLine("3. Withdraw money from your account.");
             Console.WriteLine("4. Display balance on your account.");
-            Console.WriteLine("5. Tilskrivning af renter");
+            Console.WriteLine("5. Charge interest");
             Console.WriteLine("6. Exit bank.");
         }
 

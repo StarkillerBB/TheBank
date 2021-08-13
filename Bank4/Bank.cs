@@ -56,7 +56,9 @@ namespace Bank4
 
             accountNumberCounter++;
 
-            return $"Created account successfully. \n Account Name: {account.name} \n Account ID: {account.AccountNumber} \n Account Type: {account.AccountType} \n Account Balance: {account.balance}";
+            returnValues = $"Created account successfully. \n Account Name: {account.name} \n Account ID: {account.AccountNumber} (Make sure to write this down.) \n Account Type: {account.AccountType} \n Account Balance: {account.balance}";
+
+            return returnValues;
         }
 
         /// <summary>
